@@ -1,0 +1,113 @@
+/* Réinitialisation des marges et des bordures pour tous les éléments */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style global du body, définissant la police, la couleur de fond et retirant toute marge */
+body {
+  font-family: Arial, sans-serif;  /* Police utilisée */
+  background-color: #f4f4f4;      /* Couleur de fond de la page */
+  margin: 0;                       /* Retrait des marges par défaut */
+}
+
+/* Conteneur principal de la barre de navigation */
+.navbar {
+  display: flex;                   /* Utilisation de Flexbox pour l'agencement horizontal */
+  justify-content: space-between;  /* Espacement égal entre le logo et le menu */
+  align-items: center;             /* Aligner les éléments verticalement */
+  background-color: #333;          /* Couleur de fond de la barre de navigation */
+  padding: 15px 20px;              /* Espacement intérieur de la barre de navigation */
+}
+
+/* Logo du site */
+.logo a {
+  color: #fff;                      /* Couleur du texte du logo */
+  font-size: 24px;                   /* Taille du texte */
+  text-decoration: none;             /* Retrait de la décoration de texte (souligné) */
+}
+
+/* Menu principal : liste horizontale sur les grands écrans */
+.menu {
+  display: flex;                   /* Affiche les éléments du menu horizontalement */
+  list-style-type: none;            /* Retrait des puces de liste */
+}
+
+.menu li {
+  margin: 0 15px;                  /* Espacement horizontal entre les éléments du menu */
+}
+
+/* Liens du menu */
+.menu a {
+  color: #fff;                      /* Couleur des liens */
+  text-decoration: none;             /* Retrait de la décoration de texte */
+  font-size: 18px;                   /* Taille du texte */
+  padding: 10px;                     /* Espacement autour du texte */
+  display: inline-block;             /* Affichage en bloc pour contrôler l'espacement */
+  transition: background-color 0.3s; /* Transition pour le changement de couleur au survol */
+}
+
+/* Changement de couleur des liens lorsque l'on survole */
+.menu a:hover {
+  background-color: #555;            /* Couleur de fond au survol */
+}
+
+/* Partie qui gère le bouton hamburger (menu mobile) */
+.menu-toggle-checkbox {
+  display: none; /* Cacher le checkbox réel */
+}
+
+/* Style du bouton hamburger (visible uniquement sur mobile) */
+.menu-toggle {
+  display: none;                      /* Cacher le bouton hamburger par défaut */
+  flex-direction: column;             /* Aligner les 3 barres du hamburger verticalement */
+  cursor: pointer;                   /* Changer le curseur pour indiquer qu'on peut cliquer */
+  justify-content: space-between;     /* Espacement entre les barres du hamburger */
+  width: 25px;                        /* Largeur du hamburger */
+  height: 20px;                       /* Hauteur du hamburger */
+}
+
+/* Style des barres du hamburger */
+.bar {
+  height: 4px;                        /* Hauteur de chaque barre */
+  width: 100%;                        /* Largeur pleine */
+  background-color: #fff;             /* Couleur des barres */
+  border-radius: 2px;                 /* Coins arrondis */
+}
+
+/* Partie responsive : menu et bouton hamburger pour les petits écrans */
+@media (max-width: 768px) {
+  /* Lorsque l'écran est réduit, cacher le menu principal sur les petits écrans */
+  .menu {
+      display: none;                  /* Cacher le menu */
+      flex-direction: column;         /* Afficher les éléments du menu verticalement */
+      width: 100%;                     /* Prendre toute la largeur */
+      position: absolute;              /* Positionner le menu en absolu */
+      top: 60px;                       /* Positionner le menu sous la barre de navigation */
+      left: 0;                         /* L'aligner à gauche */
+      background-color: #333;          /* Fond sombre pour le menu */
+      text-align: center;              /* Centrer les éléments */
+  }
+
+  .menu li {
+      margin: 0;                       /* Retirer l'espacement horizontal entre les éléments */
+      padding: 10px 0;                 /* Ajouter un peu d'espace vertical entre les éléments */
+      border-bottom: 1px solid #444;   /* Ajouter une bordure entre chaque élément */
+  }
+
+  .menu a {
+      font-size: 20px;                  /* Augmenter la taille des liens */
+      padding: 12px 0;                  /* Espacement vertical autour des liens */
+  }
+
+  /* Afficher le bouton hamburger sur mobile */
+  .menu-toggle {
+      display: flex;                   /* Afficher le bouton hamburger */
+  }
+
+  /* Lorsque le checkbox est coché (menu activé), afficher le menu */
+  .menu-toggle-checkbox:checked + .menu-toggle + .menu {
+      display: flex;                   /* Afficher le menu en mode vertical */
+  }
+}
